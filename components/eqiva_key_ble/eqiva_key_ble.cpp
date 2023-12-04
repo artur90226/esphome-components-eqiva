@@ -185,7 +185,7 @@ bool EqivaKeyBle::gattc_event_handler(esp_gattc_cb_event_t event, esp_gatt_if_t 
               eQ3Message::Status_Info_Message message;
               message.data = msgdata;
               this->status_sensor_->publish_state((uint16_t) message.getLockStatus());
-              this->low_battery_sensor_->publish_state((uint16_t) message.isBatteryLow() ? 1 : 0);
+              this->low_battery_sensor_->publish_state((uint16_t) message.isBatteryLow() ? "true" : "false");
 
               ESP_LOGD(TAG, "# Lock state: %d", message.getLockStatus());
               ESP_LOGD(TAG, "# Battery low: %s", message.isBatteryLow() ? "true" : "false");
